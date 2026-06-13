@@ -46,6 +46,7 @@ class ShoppingCart:
         self._items[name] = CartItem(name=name, price=price, quantity=quantity)
 
     def remove_item(self, name: str) -> None:
+        """Remove an item if present; missing items are ignored."""
         self._items.pop(name, None)
 
     def is_empty(self) -> bool:

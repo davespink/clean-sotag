@@ -38,7 +38,7 @@ class ShoppingCartTests(unittest.TestCase):
         self.assertTrue(cart.is_empty())
         self.assertEqual(cart.checkout_summary(), {"items": 0, "subtotal": 0})
 
-    def test_rejects_invalid_values(self) -> None:
+    def test_rejects_invalid_price_and_quantity(self) -> None:
         cart = ShoppingCart()
 
         with self.assertRaises(ValueError):
