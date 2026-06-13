@@ -27,6 +27,10 @@ class ShoppingCart:
     def add_item(self, name: str, price: float, quantity: int = 1) -> None:
         if name in self._items:
             current = self._items[name]
+            if current.price != price:
+                raise ValueError(
+                    f"item '{name}' already exists with price {current.price}"
+                )
             self._items[name] = CartItem(
                 name=name,
                 price=price,

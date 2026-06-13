@@ -21,6 +21,13 @@ class ShoppingCartTests(unittest.TestCase):
         self.assertEqual(cart.total_items(), 3)
         self.assertEqual(cart.subtotal(), 4.5)
 
+    def test_rejects_price_change_for_existing_item(self) -> None:
+        cart = ShoppingCart()
+        cart.add_item("apple", 1.50, 1)
+
+        with self.assertRaises(ValueError):
+            cart.add_item("apple", 2.00, 1)
+
     def test_remove_item_and_empty_cart(self) -> None:
         cart = ShoppingCart()
         cart.add_item("apple", 1.50, 1)
