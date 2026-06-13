@@ -1,2 +1,2 @@
 # clean-sotag
-A simple shopping app
+A simple shopping app and good luck
