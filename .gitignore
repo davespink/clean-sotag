@@ -1,0 +1,30 @@
+ # Dependencies Now
+node_modules/
+.wrangler/
+dist/
+
+# Big data files - NEVER commit these OK
+en.openfoodfacts.org.products.csv.gz
+*.csv.gz
+mexico_import*.sql
+*.sql.gz
+*.db
+
+# Logs and temp files
+*.log
+.DS_Store
+Thumbs.db
+
+# Environment / secrets
+.env
+.env.local
+
+# Wrangler local state
+.wrangler/state/
+
+# Optional: ignore large test files
+mexico_import_quick.sql
+
+# Keep only the scripts that generate the data
+!filter_*.js
+!schema.sql
