@@ -1,6 +1,12 @@
 """A simple shopping app domain model."""
 
 from dataclasses import dataclass
+from typing import TypedDict
+
+
+class CheckoutSummary(TypedDict):
+    items: int
+    subtotal: float
 
 
 @dataclass
@@ -51,7 +57,7 @@ class ShoppingCart:
     def subtotal(self) -> float:
         return round(sum(item.total for item in self._items.values()), 2)
 
-    def checkout_summary(self) -> dict[str, float | int]:
+    def checkout_summary(self) -> CheckoutSummary:
         return {
             "items": self.total_items(),
             "subtotal": self.subtotal(),

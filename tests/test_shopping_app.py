@@ -25,7 +25,9 @@ class ShoppingCartTests(unittest.TestCase):
         cart = ShoppingCart()
         cart.add_item("apple", 1.50, 1)
 
-        with self.assertRaises(ValueError):
+        with self.assertRaisesRegex(
+            ValueError, "item 'apple' already exists with price 1.5"
+        ):
             cart.add_item("apple", 2.00, 1)
 
     def test_remove_item_and_empty_cart(self) -> None:
@@ -44,6 +46,9 @@ class ShoppingCartTests(unittest.TestCase):
 
         with self.assertRaises(ValueError):
             cart.add_item("apple", 1, 0)
+
+        with self.assertRaises(ValueError):
+            cart.add_item("apple", 1, -1)
 
 
 if __name__ == "__main__":
